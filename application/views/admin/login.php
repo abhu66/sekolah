@@ -7,8 +7,10 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="<?php echo media_url();?>/bootsrap/css/bootstrap.css">
+  <link rel="stylesheet" href="<?php echo media_url();?>/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="<?php echo media_url();?>/css/style.css">
+  <link rel="stylesheet" href="<?php echo media_url();?>/fonts/css/font-awesome.css">
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,22 +28,29 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="../../index2.html" method="post">
+    <form action="<?php echo site_url('admin/auth/login');?>" method="post">
+      <?php
+      echo form_open(current_url(), array('role' => 'form', 'class' => 'form-signin'));
+      if(isset($_GET['location'])){
+        echo '<input type="hidden" name="location" value="';
+        if (isset($_GET['location'])) {
+          echo htmlspecialchars($_GET['location']);
+        
+        }
+        echo '" />';
+      }
+      ?>
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <input type="text" name="username" class="form-control" placeholder="Usernem">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" name="password" class="form-control" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
         <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Remember Me
-            </label>
-          </div>
+          
         </div>
         <!-- /.col -->
         <div class="col-xs-4">

@@ -1,5 +1,5 @@
 <?php
-defined ('BASEPATH') OR exit ('Non direct script access allowed');
+if(!defined('BASEPATH')) exit ('Non direct script access allowed');
 
 class Auth extends CI_Controller{
 	
