@@ -26,13 +26,13 @@ class Auth extends CI_Controller{
 		} else {
 			$lokasi = NULL;
 		}
-		$this->procces_login($lokasi);
+		$this->proccess_login($lokasi);
 	} else {
 		$this->load->view('admin/login',$data);
 	}
 }
 
-function process_login($lokasi = ''){
+function proccess_login($lokasi = ''){
 	$this->load->library('form_validation');
 	$this->form_validation->set_rules('username','Username','required');
 	$this->form_validation->set_rules('password','Password','required');

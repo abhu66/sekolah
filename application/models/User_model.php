@@ -40,7 +40,7 @@ class User_model extends CI_Model{
  		} else {
  			$this->db->order_by('user_last_update','desc');
  		}
- 		$this->db->join('user_role','user_role.user_role_role_id = user.user_role_role_id','left');
+ 		$this->db->join('user_role','user_role.role_id = user.user_role_role_id','left');
  		$res = $this->db->get('user');
 
  		if(isset($params['id'])){
