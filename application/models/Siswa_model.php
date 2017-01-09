@@ -37,6 +37,7 @@ class Siswa_model extends CI_Model {
    }
    $this->db->select('siswa.siswa_id, siswa_nik, siswa_name, siswa_place_birth,siswa_birth_date, siswa_gender,siswa_religion, siswa_address, siswa_email, siswa_image, siswa_hp,siswa_status,siswa_input_date,siswa_last_update,jurusan_jurusan_id,jurusan.jurusan_name')
    $this->db->join('siswa','jurusan.jurusan_id = siswa.jurusan_jurusan_id','left');
+   $this->db->join('siswa','krs.krs_id = siswa.krs_krs_id','left');
    $res = $this->db->get('siswa');
    if(isset($params['id']) OR isset($params['name'])){
      return $res->row_array();
