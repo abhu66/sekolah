@@ -13,7 +13,8 @@ class Dashboard extends CI_Controller{
 	}
 	public function index()
 	{
-		$this->load->model('User_model');
+		$this->load->model(array('User_model','Siswa_model'));
+		$data['siswa'] = count($this->Siswa_model->get());
 		$data['user'] = count($this->User_model->get());
 		$data['title'] = 'admin|dashboard';
 		$data['main'] = 'admin/dashboard/dashboard';

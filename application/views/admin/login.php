@@ -20,22 +20,21 @@
   <![endif]-->
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+  <div class="login-box">
+    <div class="login-logo">
+      <p>Sistem Akademik</p>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+      <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="<?php echo site_url('admin/auth/login');?>" method="post">
-      <?php
-      echo form_open(current_url(), array('role' => 'form', 'class' => 'form-signin'));
-      if(isset($_GET['location'])){
+      <form action="<?php echo site_url('admin/auth/login');?>" method="post">
+       <?php
+       echo form_open(current_url(), array('role' => 'form', 'class' => 'form-signin'));
+       if (isset($_GET['location'])) {
         echo '<input type="hidden" name="location" value="';
         if (isset($_GET['location'])) {
           echo htmlspecialchars($_GET['location']);
-        
         }
         echo '" />';
       }
@@ -59,27 +58,9 @@
         <!-- /.col -->
       </div>
     </form>
-
-    <div class="social-auth-links text-center">
-      <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
-    </div>
-    <!-- /.social-auth-links -->
-
-    <a href="#">I forgot my password</a><br>
-    <a href="register.html" class="text-center">Register a new membership</a>
-
-  </div>
-  <!-- /.login-box-body -->
-</div>
-<!-- /.login-box -->
-
-<!-- jQuery 2.2.3 -->
-<script src="<?php echo media_url();?>/js/jquery-2.2.3.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="<?php echo media_url();?>/bootstrap/js/bootstrap.min.js"></script>
-</body>
-</html>
+    <!-- jQuery 2.2.3 -->
+    <script src="<?php echo media_url();?>/js/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="<?php echo media_url();?>/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+  </html>

@@ -1,5 +1,5 @@
 <?php
-if(defined('BASEPATH')) exit ('Anda tidak dijinkan ke situs ini');
+if(!defined('BASEPATH')) exit ('No direct script access allowed');
 
 class Guru extends CI_Controller{
 	

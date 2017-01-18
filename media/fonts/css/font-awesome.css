@@ -61,11 +61,7 @@
 }
 .fa-border {
   padding: .2em .25em .15em;
-<<<<<<< HEAD
   border: solid 0.08em #eee;
-=======
-  border: solid 0.08em #eeeeee;
->>>>>>> 9146f5ae33458c785edb038041fa25a8b4be6262
   border-radius: .1em;
 }
 .fa-pull-left {
@@ -180,11 +176,7 @@
   font-size: 2em;
 }
 .fa-inverse {
-<<<<<<< HEAD
   color: #fff;
-=======
-  color: #ffffff;
->>>>>>> 9146f5ae33458c785edb038041fa25a8b4be6262
 }
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
