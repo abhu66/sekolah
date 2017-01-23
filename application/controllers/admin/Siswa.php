@@ -73,6 +73,7 @@ class Siswa extends CI_Controller {
 	 		$params['siswa_last_update'] = $this->input->post('siswa_last_update');
 	 		$params['jurusan_jurusan_Id'] = $this->input->post('jurusan_jurusan_Id');
 	 		$params['krs_krs_id'] = $this->input->post('krs_krs_id');
+	 		$paramsup['kelas_kelas_id'] = $this->input->post('kelas_kelas_id');
 	 		$status = $this->Siswa_model->add($params);
 	 		if(!empty($_FILES['siswa_image']['name'])){
 	 			$paramsup['siswa_image'] = $this->do_upload($name = 'siswa_image');
