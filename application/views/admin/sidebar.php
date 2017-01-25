@@ -5,7 +5,11 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo media_url('image/abhu.jpg');?>" class="img-circle" alt="User Image">
+        <?php if(!empty($user['user_image'])){ ?>
+          <img src="<?php echo upload_url('users/'.$user['user_image']);?>" class="img-circle" alt="User Image">
+         <?php } else { ?>
+          <img src="<?php echo media_url('img/avatar.png');?>" class="img-circle" alt="User Image">
+          <?php } ?>
         </div>
         <div class="pull-left info">
           <p><?php echo $this->session->userdata('user_name');?></p>
@@ -29,19 +33,29 @@
             <li><a href="<?php echo site_url('admin/Dashboard');?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
           </ul>
         </li>
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Daftar Siswa</span>
+            <i class="fa fa-users"></i>
+            <span>Data Mahasiswa</span>
             <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
+             <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-            <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-            <li class="active"><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-            <li><a href="collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i>Data Seluruh Mahasiswa</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i>Data Perkelas</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user"></i> <span>Pengguna</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href=""><i class="fa fa-circle-o"></i> Daftar Pengguna</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i> Tambah Pengguna</a></li>
           </ul>
         </li>
     </section>

@@ -35,10 +35,10 @@ class Siswa_model extends CI_Model {
    if(isset($params['order_by'])){
    	$this->db->order_by($params['order_by'],'desc');
    }
-   $this->db->select('siswa.siswa_id, siswa_nik, siswa_name, siswa_place_birth,siswa_birth_date, siswa_gender,siswa_religion, siswa_address, siswa_email, siswa_image, siswa_hp,siswa_status,siswa_input_date,siswa_last_update');
-   $this->db->select('jurusan.jurusan_id,jurursan_name');
-   $this->db->select('kelas.kelas_id,kelas_name');
-   $this->db->select('krs.krs_id,krs_krs_id');
+   $this->db->select('siswa.siswa_id, siswa_nik, siswa_name, siswa_place_birth,siswa_birth_date, siswa_gender,siswa_religion, siswa_address, siswa_email, siswa_image, siswa_contact_person,siswa_status,siswa_input_date,siswa_last_update');
+   $this->db->select('jurusan.jurusan_name');
+   $this->db->select('kelas.kelas_name,kelas_level');
+   $this->db->select('krs.krs_level');
    $this->db->join('jurusan','jurusan.jurusan_id = siswa.jurusan_jurusan_id','left');
    $this->db->join('krs','krs.krs_id = siswa.krs_krs_id','left');
    $this->db->join('kelas','kelas.kelas_id = siswa.kelas_kelas_id','left');
@@ -48,12 +48,12 @@ class Siswa_model extends CI_Model {
    } else {
      return $res->result_array();
    }
- }
 
       function add($data = array()){
+
        if(isset($data['siswa_id'])){
          $this->db->set('siswa_id',$data['siswa_id']);
-          }
+       }
        if(isset($data['siswa_nik'])){
          $this->db->set('siswa_nik',$data['siswa_nik']);
           }
@@ -90,8 +90,8 @@ class Siswa_model extends CI_Model {
       if(isset($data['siswa_image'])){
         $this->db->set('siswa_image',$data['siswa_image']);
         }	
-      if(isset($data['siswa_hp'])){
-        $this->db->set('siswa_hp',$data['siswa_hp']);
+      if(isset($data['siswa_contact_person'])){
+        $this->db->set('siswa_contact_person',$data['siswa_contact_person']);
         }	
       if(isset($data['siswa_status'])){
         $this->db->set('siswa_status',$data['siswa_status']);
@@ -116,6 +116,7 @@ class Siswa_model extends CI_Model {
         $status = $this->db->affected_rows();
       return ($status == 0) ? FALSE : $id;
      }
+   }
 
    function delete($id){
      $this->db->where('siswa_id',$id);
@@ -140,13 +141,11 @@ class Siswa_model extends CI_Model {
     if(isset($params['id'])){
       return $res->row_array();
     } else {
-      return $res->result_array()
+      return $res->result_array();
     }
 
-  }
-
   function add_class($data = array()){
-    $param = array('kelas_id'=>$data['kelas_id'],
+    $param = array(
                    'kelas_name'=>$data['kelas_name'],
                    'kelas_level'=>$data['kelas_level'],
                    );
@@ -156,7 +155,7 @@ class Siswa_model extends CI_Model {
     $status = $this->db->affected_rows();
     return ($status == 0) ? FALSE : $id;
   }
-
+}
   function delete_class($id){
     $this->db->where('kelas_id',$id);
     $this->db->delete('kelas');
