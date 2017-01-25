@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * Asset controllers class
+ * Siswa controllers class
  *
  * @package     SYSTEM Application Internal
  * @subpackage  Controllers
@@ -73,15 +73,15 @@ class Siswa extends CI_Controller {
 	 		$params['siswa_last_update'] = $this->input->post('siswa_last_update');
 	 		$params['jurusan_jurusan_Id'] = $this->input->post('jurusan_jurusan_Id');
 	 		$params['krs_krs_id'] = $this->input->post('krs_krs_id');
-	 		$paramsup['kelas_kelas_id'] = $this->input->post('kelas_kelas_id');
+	 		$params['kelas_kelas_id'] = $this->input->post('kelas_kelas_id');
 	 		$status = $this->Siswa_model->add($params);
 	 		if(!empty($_FILES['siswa_image']['name'])){
 	 			$paramsup['siswa_image'] = $this->do_upload($name = 'siswa_image');
 	 		}
 	 		 if($this->input->post('siswa_id')){
-	 		 	$paramsup = $id;
+	 		 	$paramsup['siswa_id'] = $id;
 	 		 } else {
-	 		 	$paramsup = $status;
+	 		 	$paramsup['siswa_id'] = $status;
 	 		 }
 	 		 $this->Siswa_model->add($paramsup);
 
