@@ -36,7 +36,7 @@ class Siswa_model extends CI_Model {
    	$this->db->order_by($params['order_by'],'desc');
    }
    $this->db->select('siswa.siswa_id, siswa_nik, siswa_name, siswa_place_birth,siswa_birth_date, siswa_gender,siswa_religion, siswa_address, siswa_email, siswa_image, siswa_hp,siswa_status,siswa_input_date,siswa_last_update');
-   $this->db->select('jurusan.jurusan_id,jurursan_name');
+   $this->db->select('jurusan.jurusan_id,jurusan_name');
    $this->db->select('kelas.kelas_id,kelas_name');
    $this->db->select('krs.krs_id,krs_krs_id');
    $this->db->join('jurusan','jurusan.jurusan_id = siswa.jurusan_jurusan_id','left');
@@ -47,8 +47,8 @@ class Siswa_model extends CI_Model {
      return $res->row_array();
    } else {
      return $res->result_array();
-   }
- }
+    }
+    }
 
       function add($data = array()){
        if(isset($data['siswa_id'])){
@@ -140,9 +140,8 @@ class Siswa_model extends CI_Model {
     if(isset($params['id'])){
       return $res->row_array();
     } else {
-      return $res->result_array()
+      return $res->result_array();
     }
-
   }
 
   function add_class($data = array()){
@@ -162,3 +161,4 @@ class Siswa_model extends CI_Model {
     $this->db->delete('kelas');
   }
  }
+
