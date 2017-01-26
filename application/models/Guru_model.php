@@ -41,7 +41,7 @@ class Guru_model extends CI_Model {
     } else {
     	return $res->result_array();
     }
-
+  }
     function add($data = array()){
     	if(isset($data['guru_id'])){
     		$this->db->set('guru_id',$data['guru_id']);
@@ -96,10 +96,8 @@ class Guru_model extends CI_Model {
         	$id = $this->db->insert_id();
         }
         $status = $this->db->affected_rows()
-        return ($status == 0) ? FALSE : $id;
-    	
+        return ($status == 0) ? FALSE : $id;	
     }
-  } 
    function delete($id){
    	$this->db->where('guru_id',$id);
    	$this->db->delete('guru');

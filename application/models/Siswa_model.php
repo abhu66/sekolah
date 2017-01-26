@@ -145,18 +145,28 @@ class Siswa_model extends CI_Model {
     }
 
   function add_class($data = array()){
-    $param = array(
-                   'kelas_name'=>$data['kelas_name'],
-                   'kelas_level'=>$data['kelas_level'],
-                   );
-    $this->db->insert('kelas',$param);
+   $param = array('kelas_name'=>$data['kelas_name'].
+                  'kelas_theacers'=>$data['kelas_theacers'],
+                  'kelas_level'=>$data['kelas_level'],
+                  );
+   $this->db->insert('kelas',$param);
+   if(isset($data['id'])){
+    $this->db->where('kelas.kelas_id',$data['id']);
     $this->db->update('kelas');
+    $id = $data['kelas_id'];
+   } else {
+    $this->db->insert('kelas');
     $id = $this->db->insert_id();
-    $status = $this->db->affected_rows();
-    return ($status == 0) ? FALSE : $id;
+   }
+   $status = $this->db->affected_rows();
+   return ($status == 0) ? FALSE : $id;
   }
-}
   function delete_class($id){
+    $this->db->where('kelas_id',$id);
+    $this->db->delete('kelas');
+  }
+
+  function del_class($id){
     $this->db->where('kelas_id',$id);
     $this->db->delete('kelas');
   }
