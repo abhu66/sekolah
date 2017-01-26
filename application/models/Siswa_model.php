@@ -143,9 +143,9 @@ class Siswa_model extends CI_Model {
     } else {
       return $res->result_array();
     }
-
+  }
   function add_class($data = array()){
-   $param = array('kelas_name'=>$data['kelas_name'].
+   $param = array('kelas_name'=>$data['kelas_name'],
                   'kelas_theacers'=>$data['kelas_theacers'],
                   'kelas_level'=>$data['kelas_level'],
                   );
